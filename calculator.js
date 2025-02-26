@@ -23,7 +23,11 @@ arr.forEach((button) => {
       string = string.slice(0, -1);
       input.value = string;
     } else if (buttonText == "%") {
-      string = (parseFloat(string) / 100).toString();
+      string = string.split("*");
+      const baseNum = string[0];
+      const percent = string[1];
+      string = (parseFloat(baseNum * (percent/100))).toString();
+      // string = (parseFloat(string) / 100).toString();
       input.value = string;
     } else {
       string += buttonText;
